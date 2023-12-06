@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Projet_Final.AjoutProjet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Projet_Final"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Grid.Column="0" Grid.Row="1"  Background="Pink" HorizontalAlignment="Stretch">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--                                                            Nom Event                                                                             -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="0"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >Entrez le code de l'Article (3 chiffres)</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxCode"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+        <!--                                                            modèle                                                                                  -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0">
+            <StackPanel>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Padding="20">Entrez le modèle</TextBlock>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Stretch">
+                    <TextBox Margin="100 0 100 0" x:Name="tbxModele"></TextBox>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+        <!--                                                            meuble                                                                                 -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="2"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" Text="Entrez le type de meuble"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxMeuble"/>
+            </StackPanel>
+
+        </StackPanel>
+        <!--                                                            Catégorie                                                                             -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3"  Grid.Column="0">
+            <TextBlock Padding="20">déterminez la catégorie</TextBlock>
+            <ComboBox Margin="0 15 0 0" x:Name="cbCategorie"
+              SelectedIndex="0">
+                <x:String>Salon et salle a manger</x:String>
+                <x:String>Vestibule et entrée</x:String>
+                <x:String>Chambre a coucher</x:String>
+                <x:String>Cuisine</x:String>
+            </ComboBox>
+        </StackPanel>
+        <!--                                                            Couleur                                                                             -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="4"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" Text="Entrez la couleur du meuble"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxCouleur"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Prix                                                                             -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="5"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" Text="Entrez le prix du produit"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxPrix"/>
+            </StackPanel>
+
+        </StackPanel>
+        <!--                                                            Bouton Ajouter                                                                        -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6"  Grid.Column="0">
+            <Button x:Name="myButton" Click="myButton_Click">Ajouter</Button>
+        </StackPanel>
+    </Grid>
+</Page>
