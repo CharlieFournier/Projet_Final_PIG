@@ -36,7 +36,7 @@ namespace Projet_Final
             switch (item.Name)
             {
                 case "iListeProjet":
-                   // mainFrame.Navigate(typeof());
+                    mainFrame.Navigate(typeof(ListeProjet));
                     break;
                 case "iAjoutProjet":
                     mainFrame.Navigate(typeof(AjoutProjet));

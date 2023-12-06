@@ -26,6 +26,8 @@ namespace Projet_Final
         public ListeProjet()
         {
             this.InitializeComponent();
+            SingletonProjet.getInstance().getMateriel();
+            GridProjet.ItemsSource = SingletonProjet.getInstance().getListe();
         }
 
         private void GridProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)

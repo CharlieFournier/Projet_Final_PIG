@@ -17,15 +17,15 @@
 
 			<NavigationView.MenuItems>
 				<NavigationViewItemHeader Content=""/>
-				<NavigationViewItem Content="Liste" x:Name="iListeProjet" Icon="People"/>
+				<NavigationViewItem Content="Liste Projet" x:Name="iListeProjet" Icon="People"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="Ajouter" x:Name="iAjoutProjet" Icon="Add"/>
+				<NavigationViewItem Content="Ajouter Projet" x:Name="iAjoutProjet" Icon="Add"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="Ajout BD" x:Name="iTest" Icon="Add"/>
+				<NavigationViewItem Content="???" x:Name="iTest" Icon="Add"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="Ajout Fichier" x:Name="iTest2" Icon="Add"/>
+				<NavigationViewItem Content="???" x:Name="iTest2" Icon="Add"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="boites de dialogues" x:Name="iTest3" Icon="Add"/>
+				<NavigationViewItem Content="???" x:Name="iTest3" Icon="Add"/>
 			</NavigationView.MenuItems>
 
 			<Frame x:Name="mainFrame" Grid.Row="1" />

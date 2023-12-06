@@ -30,7 +30,24 @@ namespace Projet_Final
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
+            int code = Convert.ToInt32(tbxCode.Text);
+            string modele = tbxModele.Text;
+            string meuble = tbxMeuble.Text;
+            string categorie = cbCategorie.SelectedValue.ToString();
+            string couleur = tbxCouleur.Text;
+            int prix = Convert.ToInt32(tbxPrix.Text);
 
+
+            Projet projet = new Projet(code, modele, meuble, categorie, couleur, prix);
+
+            SingletonProjet.getInstance().Ajout(projet);
+
+            afficher();
+        }
+
+        private void afficher()
+        {
+            SingletonProjet.getInstance().getMateriel();
         }
     }
 }
