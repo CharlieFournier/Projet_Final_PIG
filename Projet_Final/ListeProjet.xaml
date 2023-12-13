@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <GridView x:Name="GridProjet" Background="LightGray" SelectionChanged="GridProjet_SelectionChanged">
+        <GridView x:Name="GridProjet" Background="black" SelectionChanged="GridProjet_SelectionChanged">
 
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Projet">

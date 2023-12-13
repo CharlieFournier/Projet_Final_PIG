@@ -53,7 +53,7 @@ namespace Projet_Final
 
                     string numeroProjet = (string)r["numeroProjet"];
                     string titre = (string)r["titre"];
-                    DateTime dateDebut = (DateTime)r["dateDebut"];
+                    string dateDebut = (string)r["dateDebut"];
                     string description  = (string)r["Description"];
                     double budget = (double)r["budget"];
                     int nbEmploye = (int)r["nbEmploye"];
@@ -148,9 +148,8 @@ namespace Projet_Final
         public void Ajout(Projet p)
         {
             
-            string numeroProjet = p.NumeroProjet;
             string titre = p.Titre;
-            DateTime dateDebut = p.DateDebut;
+            string dateDebut = p.DateDebut;
             string description = p.Description;
             double budget = p.Budget;
             int nbEmploye = p.NbEmploye;
@@ -162,9 +161,8 @@ namespace Projet_Final
                 {
                     MySqlCommand commande = new MySqlCommand();
                     commande.Connection = con;
-                    commande.CommandText = $"insert into produits values(@numeroProjet, @titre, @dateDebut, @description, @budget, @nbEmploye, @totalSalaire, @idClient, @statutProjet)";
+                    commande.CommandText = $"insert into projet values(null, @titre, @dateDebut, @description, @budget, @nbEmploye, @totalSalaire, @idClient, @statutProjet)";
 
-                    commande.Parameters.AddWithValue("@numeroProjet", numeroProjet);
                     commande.Parameters.AddWithValue("@titre", titre);
                     commande.Parameters.AddWithValue("@dateDebut", dateDebut);
                     commande.Parameters.AddWithValue("@description", description);

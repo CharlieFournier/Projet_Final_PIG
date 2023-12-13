@@ -13,7 +13,7 @@ namespace Projet_Final
 
             string numeroProjet;
             string titre;
-            DateTime dateDebut;
+            string dateDebut;
             string description;
             double budget;
             int nbEmploye;
@@ -23,9 +23,8 @@ namespace Projet_Final
 
             public event PropertyChangedEventHandler PropertyChanged;
 
-            public Projet(string pnumeroProjet, string ptitre, DateTime pdateDebut, string pdescription, double pbudget, int pnbEmploye, double ptotalSalaire, int pidClient, string pstatutProjet)
+            public Projet( string ptitre, string pdateDebut, string pdescription, double pbudget, int pnbEmploye, double ptotalSalaire, int pidClient, string pstatutProjet)
             {
-                numeroProjet = pnumeroProjet;
                 titre = ptitre;
                 dateDebut = pdateDebut;
                 description = pdescription;
@@ -56,11 +55,11 @@ namespace Projet_Final
                 get { return numeroProjet; }
                 set
                 {
-                numeroProjet = value;
+                    numeroProjet = value;
                     this.OnPropertyChanged();
                 }
             }
-            public string Titre
+        public string Titre
             {
                 get { return titre; }
                 set
@@ -69,7 +68,7 @@ namespace Projet_Final
                     this.OnPropertyChanged();
                 }
             }
-            public DateTime DateDebut
+            public string DateDebut
         {
                 get { return dateDebut; }
                 set

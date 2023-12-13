@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Grid.Column="0" Grid.Row="1"  Background="Pink" HorizontalAlignment="Stretch">
+    <Grid Grid.Column="0" Grid.Row="1"  Background="Black" HorizontalAlignment="Stretch">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,83 +19,113 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!--                                                            Nom Event                                                                             -->
+        <!--                                                            Titre Projet                                                                             -->
         <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="0"  Grid.Column="0">
 
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock Padding="20" >Entrez le code de l'Article (3 chiffres)</TextBlock>
+                <TextBlock Padding="20" >titre du projet</TextBlock>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Stretch">
-                <TextBox Margin="100 0 100 0" x:Name="tbxCode"></TextBox>
+                <TextBox Margin="100 0 100 0" x:Name="tbxTitre"></TextBox>
             </StackPanel>
 
         </StackPanel>
-        <!--                                                            modèle                                                                                  -->
+        <!--                                                            Date                                                                                  -->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0">
             <StackPanel>
 
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Padding="20">Entrez le modèle</TextBlock>
+                    <TextBlock Padding="20">Date de début</TextBlock>
                 </StackPanel>
 
-                <StackPanel HorizontalAlignment="Stretch">
-                    <TextBox Margin="100 0 100 0" x:Name="tbxModele"></TextBox>
+                <StackPanel HorizontalAlignment="Center">
+                    <DatePicker x:Name="DateDebutPicker"/>
                 </StackPanel>
 
             </StackPanel>
         </StackPanel>
-        <!--                                                            meuble                                                                                 -->
+        <!--                                                            Description                                                                                 -->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="2"  Grid.Column="0">
 
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock Padding="20" Text="Entrez le type de meuble"/>
+                <TextBlock Padding="20" Text="Entrez la Description"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Stretch">
-                <TextBox Margin="100 0 100 0" x:Name="tbxMeuble"/>
+                <TextBox Margin="100 0 100 0" x:Name="tbxDescription"/>
             </StackPanel>
 
         </StackPanel>
-        <!--                                                            Catégorie                                                                             -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3"  Grid.Column="0">
-            <TextBlock Padding="20">déterminez la catégorie</TextBlock>
-            <ComboBox Margin="0 15 0 0" x:Name="cbCategorie"
-              SelectedIndex="0">
-                <x:String>Salon et salle a manger</x:String>
-                <x:String>Vestibule et entrée</x:String>
-                <x:String>Chambre a coucher</x:String>
-                <x:String>Cuisine</x:String>
-            </ComboBox>
+        
+        <!--                                                            Budget                                                                             -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="3"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" Text="Entrez le budget du projet"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxBudget"/>
+            </StackPanel>
+
         </StackPanel>
-        <!--                                                            Couleur                                                                             -->
+
+        <!--                                                            Nombre Employe                                                                             -->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="4"  Grid.Column="0">
 
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock Padding="20" Text="Entrez la couleur du meuble"/>
+                <TextBlock Padding="20" Text="Entrez le nombre d'employe"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Stretch">
-                <TextBox Margin="100 0 100 0" x:Name="tbxCouleur"/>
+                <TextBox Margin="100 0 100 0" x:Name="tbxEmploye"/>
             </StackPanel>
 
         </StackPanel>
 
-        <!--                                                            Prix                                                                             -->
+        <!--                                                            Total Salaire                                                                             -->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="5"  Grid.Column="0">
 
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock Padding="20" Text="Entrez le prix du produit"/>
+                <TextBlock Padding="20" Text="Entrez le salaire Total"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Stretch">
-                <TextBox Margin="100 0 100 0" x:Name="tbxPrix"/>
+                <TextBox Margin="100 0 100 0" x:Name="tbxSalaire"/>
             </StackPanel>
 
         </StackPanel>
+
+        <!--                                                            IdClient                                                                             -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="6"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" Text="Entrez l'id du client"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxIdClient"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Statut                                                                             -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="7"  Grid.Column="0">
+            <TextBlock Padding="20">déterminez le statut</TextBlock>
+            <ComboBox Margin="0 15 0 0" x:Name="cbStatut"
+              SelectedIndex="0">
+                <x:String>En cours</x:String>
+                <x:String>Terminer</x:String>
+
+            </ComboBox>
+        </StackPanel>
+        
         <!--                                                            Bouton Ajouter                                                                        -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6"  Grid.Column="0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8"  Grid.Column="0">
             <Button x:Name="myButton" Click="myButton_Click">Ajouter</Button>
         </StackPanel>
     </Grid>
