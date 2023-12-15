@@ -47,11 +47,11 @@ namespace Projet_Final
                 case "iAjoutEmploye":
                     mainFrame.Navigate(typeof(AjoutEmploye));
                     break;
-                case "iTest2":
-                    //mainFrame.Navigate(typeof());
+                case "iListeClient":
+                    mainFrame.Navigate(typeof(ListeClient));
                     break;
-                case "iTest3":
-                   // mainFrame.Navigate(typeof());
+                case "iAjoutClient":
+                    mainFrame.Navigate(typeof(AjoutClient));
                     break;
                 default:
                     break;
