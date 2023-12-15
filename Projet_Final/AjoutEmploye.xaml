@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Projet_Final.AjoutEmploye"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Projet_Final"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Grid.Column="0" Grid.Row="1"  Background="Black" HorizontalAlignment="Stretch">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--                                                            Nom                                                                                    -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="0"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >Nom de l'employe</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxNom"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Prenom                                                                                    -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="1"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >Prenom de l'employe</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxPrenom"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Date Naissance                                                                                  -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="2"  Grid.Column="0">
+            <StackPanel>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Padding="20">Date de naissance</TextBlock>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <DatePicker x:Name="DateNaissancePicker"/>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+
+        <!--                                                            Email                                                                                    -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="3"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >Email de l'employe</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxEmail"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Adresse                                                                                    -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="4"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >Adresse de l'employe</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxAdresse"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Date Embauche                                                                                  -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="5"  Grid.Column="0">
+            <StackPanel>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Padding="20">Date d'embauche</TextBlock>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <DatePicker x:Name="DateEmbauchePicker"/>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+
+        <!--                                                            Taux horaire                                                                                    -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="6"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >Taux horaire</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxTauxHoraire"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            URLPhoto                                                                                    -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="7"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >URL photo</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxPhoto"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Statut                                                                             -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8"  Grid.Column="0">
+            <TextBlock Padding="20">déterminez le statut</TextBlock>
+            <ComboBox Margin="0 15 0 0" x:Name="cbStatut"
+              SelectedIndex="0">
+                <x:String>Journalier</x:String>
+                <x:String>Permanent</x:String>
+
+            </ComboBox>
+        </StackPanel>
+
+        <!--                                                            URLPhoto                                                                                    -->
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="9"  Grid.Column="0">
+
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Padding="20" >Nombre d'heures</TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBox Margin="100 0 100 0" x:Name="tbxHeures"></TextBox>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--                                                            Bouton Ajouter                                                                        -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="10"  Grid.Column="0">
+            <Button x:Name="myButton" Click="myButton_Click">Ajouter</Button>
+        </StackPanel>
+    </Grid>
+</Page>

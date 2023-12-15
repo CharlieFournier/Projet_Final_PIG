@@ -19,11 +19,11 @@
 				<NavigationViewItemHeader Content=""/>
 				<NavigationViewItem Content="Liste Projet" x:Name="iListeProjet" Icon="People"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="Ajouter Projet" x:Name="iAjoutProjet" Icon="Add"/>
+				<NavigationViewItem Content="Ajouter un Projet" x:Name="iAjoutProjet" Icon="Add"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="???" x:Name="iTest" Icon="Add"/>
+				<NavigationViewItem Content="Liste Employe" x:Name="iListeEmploye" Icon="People"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="???" x:Name="iTest2" Icon="Add"/>
+				<NavigationViewItem Content="Ajouter un Employé" x:Name="iAjoutEmploye" Icon="Add"/>
 				<NavigationViewItemSeparator />
 				<NavigationViewItem Content="???" x:Name="iTest3" Icon="Add"/>
 			</NavigationView.MenuItems>

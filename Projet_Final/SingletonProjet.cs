@@ -34,7 +34,7 @@ namespace Projet_Final
             return instance;
         }
 
-        public ObservableCollection<Projet> getMateriel()
+        public ObservableCollection<Projet> getProjet()
         {
 
             listeProjet.Clear();

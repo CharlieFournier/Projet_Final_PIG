@@ -52,7 +52,7 @@ namespace Projet_Final
 
         private void afficher()
         {
-            SingletonProjet.getInstance().getMateriel();
+            SingletonProjet.getInstance().getProjet();
         }
     }
 }
