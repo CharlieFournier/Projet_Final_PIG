@@ -117,7 +117,7 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="7"  Grid.Column="0">
 
             <StackPanel HorizontalAlignment="Center">
-                <TextBlock Padding="20" Text="Entrez le prenom de l'employé défini"/>
+                <TextBlock Padding="20" Text="Entrez le prenom de l'employé défini (facultatif)"/>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Stretch">

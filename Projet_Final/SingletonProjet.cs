@@ -207,7 +207,7 @@ namespace Projet_Final
                 {
                     MySqlCommand commande = new MySqlCommand("P_Ajout_Projet");
                    
-                    if (p.PrenomEmploye != null)
+                    if (p.PrenomEmploye != "")
                     {
                         commande = new MySqlCommand("P_Ajout_Projet_Employe");
                     }
@@ -223,7 +223,7 @@ namespace Projet_Final
                     commande.Parameters.AddWithValue("in_totalSalaire", totalSalaire);
                     commande.Parameters.AddWithValue("in_IdClient", idClient);
                     commande.Parameters.AddWithValue("in_statutProjet", "En cours");
-                    if (p.PrenomEmploye != null)
+                    if (p.PrenomEmploye != "")
                     {
                     string prenomEmploye = p.PrenomEmploye;
                     commande.Parameters.AddWithValue("in_prenomEmploye", prenomEmploye);
