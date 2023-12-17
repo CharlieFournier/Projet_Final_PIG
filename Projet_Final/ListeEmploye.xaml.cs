@@ -32,7 +32,8 @@ namespace Projet_Final
 
         private void GridEmploye_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            int index = GridEmploye.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomEmploye), index);
         }
     }
 }

@@ -19,7 +19,9 @@ namespace Projet_Final
             int nbEmploye;
             double totalSalaire;
             int idClient;
-            string statutProjet;    
+            string statutProjet;
+
+            string nomEmploye;
 
             public event PropertyChangedEventHandler PropertyChanged;
 
@@ -59,7 +61,7 @@ namespace Projet_Final
                     this.OnPropertyChanged();
                 }
             }
-        public string Titre
+            public string Titre
             {
                 get { return titre; }
                 set
@@ -69,7 +71,7 @@ namespace Projet_Final
                 }
             }
             public string DateDebut
-        {
+            {
                 get { return dateDebut; }
                 set
                 {
@@ -127,7 +129,7 @@ namespace Projet_Final
             }
 
             public string StatutProjet
-        {
+            {
                 get { return statutProjet; }
                 set
                 {
@@ -135,6 +137,16 @@ namespace Projet_Final
                     this.OnPropertyChanged();
                 }
             }
+
+        public string NomEmploye
+        {
+            get { return nomEmploye; }
+            set
+            {
+                nomEmploye = value;
+                this.OnPropertyChanged();
+            }
+        }
 
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

@@ -86,11 +86,11 @@ namespace Projet_Final
 
             try
             {
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("P_Delete_Employe");
                 commande.Connection = con;
-                commande.CommandText = $"DELETE FROM Employe WHERE matriculeEmploye = @matriculeEmploye;";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                commande.Parameters.AddWithValue("@matriculeEmploye", matriculeEmploye);
+                commande.Parameters.AddWithValue("in_MatriculeEmploye", matriculeEmploye);
                 con.Open();
                 commande.ExecuteNonQuery();
 
@@ -159,20 +159,20 @@ namespace Projet_Final
 
             try
             {
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("P_Ajout_Employe");
                 commande.Connection = con;
-                commande.CommandText = $"insert into employe values(null, @nomEmploye, @prenomEmploye, @dateNaissance, @emailEmploye, @adresseEmploye, @dateEmbauche, @tauxHoraire, @urlPhoto, @statutEmploye, @nbrHeure)";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                commande.Parameters.AddWithValue("@nomEmploye", nomEmploye);
-                commande.Parameters.AddWithValue("@prenomEmploye", prenomEmploye);
-                commande.Parameters.AddWithValue("@dateNaissance", dateNaissance);
-                commande.Parameters.AddWithValue("@emailEmploye", emailEmploye);
-                commande.Parameters.AddWithValue("@adresseEmploye", adresseEmploye);
-                commande.Parameters.AddWithValue("@dateEmbauche", dateEmbauche);
-                commande.Parameters.AddWithValue("@tauxHoraire", tauxHoraire);
-                commande.Parameters.AddWithValue("@urlPhoto", urlPhoto);
-                commande.Parameters.AddWithValue("@statutEmploye", statutEmploye);
-                commande.Parameters.AddWithValue("@nbrHeure", nbrHeure);
+                commande.Parameters.AddWithValue("in_nomEmploye", nomEmploye);
+                commande.Parameters.AddWithValue("in_prenomEmploye", prenomEmploye);
+                commande.Parameters.AddWithValue("in_dateNaissance", dateNaissance);
+                commande.Parameters.AddWithValue("in_emailEmploye", emailEmploye);
+                commande.Parameters.AddWithValue("in_adresseEmploye", adresseEmploye);
+                commande.Parameters.AddWithValue("in_dateEmbauche", dateEmbauche);
+                commande.Parameters.AddWithValue("in_tauxHoraire", tauxHoraire);
+                commande.Parameters.AddWithValue("in_urlPhoto", urlPhoto);
+                commande.Parameters.AddWithValue("in_statutEmploye", statutEmploye);
+                commande.Parameters.AddWithValue("in_nbrHeures", nbrHeure);
 
                 con.Open();
                 commande.ExecuteNonQuery();

@@ -32,7 +32,8 @@ namespace Projet_Final
 
         private void GridClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            int index = GridClient.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomClient), index);
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand("P_Select_Projet");
                 commande.Connection = con;
-                commande.CommandType = System.Data.CommandType.StoredProcedure; ;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
                 con.Open();
 
@@ -68,8 +68,8 @@ namespace Projet_Final
                 r.Close();
                 con.Close();
 
-
             }
+
             catch (MySqlException ex)
             {
                 if (con.State == System.Data.ConnectionState.Open) { }
@@ -88,11 +88,11 @@ namespace Projet_Final
 
             try
             {
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("P_Delete_Projet");
                 commande.Connection = con;
-                commande.CommandText = $"DELETE FROM produits WHERE numeroProjet = @numeroProjet;";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                commande.Parameters.AddWithValue("@numeroProjet", numeroProjet);
+                commande.Parameters.AddWithValue("in_NumeroProjet", numeroProjet);
                 con.Open();
                 commande.ExecuteNonQuery();
 
@@ -157,26 +157,28 @@ namespace Projet_Final
             int idClient = p.IdClient;
             string statutProjet = p.StatutProjet;
 
-                try
-                {
-                    MySqlCommand commande = new MySqlCommand();
-                    commande.Connection = con;
-                    commande.CommandText = $"insert into projet values(null, @titre, @dateDebut, @description, @budget, @nbEmploye, @totalSalaire, @idClient, @statutProjet)";
+            //string nomEmploye p.nomEmploye;
 
-                    commande.Parameters.AddWithValue("@titre", titre);
-                    commande.Parameters.AddWithValue("@dateDebut", dateDebut);
-                    commande.Parameters.AddWithValue("@description", description);
-                    commande.Parameters.AddWithValue("@budget", budget);
-                    commande.Parameters.AddWithValue("@nbEmploye", nbEmploye);
-                    commande.Parameters.AddWithValue("@totalSalaire", totalSalaire);
-                    commande.Parameters.AddWithValue("@idClient", idClient);
-                    commande.Parameters.AddWithValue("@statutProjet", statutProjet);
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("P_Ajout_Projet");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
+                commande.Parameters.AddWithValue("in_titre", titre);
+                commande.Parameters.AddWithValue("in_dateDebut", dateDebut);
+                commande.Parameters.AddWithValue("in_description", description);
+                commande.Parameters.AddWithValue("in_budget", budget);
+                commande.Parameters.AddWithValue("in_nbEmploye", nbEmploye);
+                commande.Parameters.AddWithValue("in_totalSalaire", totalSalaire);
+                commande.Parameters.AddWithValue("in_IdClient", idClient);
+                commande.Parameters.AddWithValue("in_statutProjet", statutProjet);
                 con.Open();
-                    commande.ExecuteNonQuery();
+                commande.ExecuteNonQuery();
 
-                    con.Close();
-                }
+                con.Close();
+            }
+
                 catch (MySqlException ex)
                 {
                     con.Close();

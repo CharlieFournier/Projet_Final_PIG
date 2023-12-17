@@ -81,11 +81,11 @@ namespace Projet_Final
 
             try
             {
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("P_Delete_Client");
                 commande.Connection = con;
-                commande.CommandText = $"DELETE FROM client WHERE idClient = @idClient;";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                commande.Parameters.AddWithValue("@idClient", idClient);
+                commande.Parameters.AddWithValue("in_idClient", idClient);
                 con.Open();
                 commande.ExecuteNonQuery();
 
@@ -148,20 +148,21 @@ namespace Projet_Final
 
             try
             {
-                MySqlCommand commande = new MySqlCommand();
+                MySqlCommand commande = new MySqlCommand("P_Ajout_Client");
                 commande.Connection = con;
-                commande.CommandText = $"insert into client values(null, @nomClient, @adresseClient, @numeroTel, @emailClient)";
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                commande.Parameters.AddWithValue("@nomClient", nomClient);
-                commande.Parameters.AddWithValue("@adresseClient", adresseClient);
-                commande.Parameters.AddWithValue("@numeroTel", numeroTel);
-                commande.Parameters.AddWithValue("@emailClient", emailClient);
+                commande.Parameters.AddWithValue("in_nomClient", nomClient);
+                commande.Parameters.AddWithValue("in_adresseClient", adresseClient);
+                commande.Parameters.AddWithValue("in_numeroTel", numeroTel);
+                commande.Parameters.AddWithValue("in_emailClient", emailClient);
 
                 con.Open();
                 commande.ExecuteNonQuery();
 
                 con.Close();
             }
+
             catch (MySqlException ex)
             {
                 con.Close();

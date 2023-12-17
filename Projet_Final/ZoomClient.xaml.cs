@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -22,19 +21,33 @@ namespace Projet_Final
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ListeProjet : Page
+    public sealed partial class ZoomClient : Page
     {
-        public ListeProjet()
+        int index;
+
+        Client c;
+        public ZoomClient()
         {
             this.InitializeComponent();
-            SingletonProjet.getInstance().getProjet();
-            GridProjet.ItemsSource = SingletonProjet.getInstance().getListe();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            index = (int)e.Parameter;
+
+            if (index >= 0)
+            {
+                c = SingletonClient.getInstance().getListe()[index];
+
+                tbxIdClient.Text = "Client " + c.IdClient;
+
+            }
         }
 
-        private void GridProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btSupprimer_Click(object sender, RoutedEventArgs e)
         {
-            int index = GridProjet.SelectedIndex;
-            this.Frame.Navigate(typeof(ZoomProjet), index);
+            SingletonClient.getInstance().supprimer(index);
+            this.Frame.Navigate(typeof(ListeClient));
         }
+
     }
 }
