@@ -17,15 +17,19 @@
 
 			<NavigationView.MenuItems>
 				<NavigationViewItemHeader Content=""/>
-				<NavigationViewItem Content="Liste Projet" x:Name="iListeProjet" Icon="People"/>
+                <NavigationViewItem Content="Liste Projet en cours" x:Name="iListeProjetEnCours" Icon="People"/>
+                <NavigationViewItemSeparator />
+                <NavigationViewItem Content="Liste Projet" x:Name="iListeProjet" Icon="People"/>
 				<NavigationViewItemSeparator />
 				<NavigationViewItem Content="Ajouter un Projet" x:Name="iAjoutProjet" Icon="Add"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="Liste Employe" x:Name="iListeEmploye" Icon="People"/>
+                <NavigationViewItemHeader Content=""/>
+                <NavigationViewItem Content="Liste Employe" x:Name="iListeEmploye" Icon="People"/>
 				<NavigationViewItemSeparator />
 				<NavigationViewItem Content="Ajouter un Employé" x:Name="iAjoutEmploye" Icon="Add"/>
 				<NavigationViewItemSeparator />
-				<NavigationViewItem Content="Liste Client" x:Name="iListeClient" Icon="People"/>
+                <NavigationViewItemHeader Content=""/>
+                <NavigationViewItem Content="Liste Client" x:Name="iListeClient" Icon="People"/>
                 <NavigationViewItemSeparator />
                 <NavigationViewItem Content="Ajouter un Client" x:Name="iAjoutClient" Icon="Add"/>
             </NavigationView.MenuItems>

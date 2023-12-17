@@ -21,11 +21,11 @@ namespace Projet_Final
             int idClient;
             string statutProjet;
 
-            string nomEmploye;
+            string prenomEmploye;
 
             public event PropertyChangedEventHandler PropertyChanged;
 
-            public Projet( string ptitre, string pdateDebut, string pdescription, double pbudget, int pnbEmploye, double ptotalSalaire, int pidClient, string pstatutProjet)
+            public Projet( string ptitre, string pdateDebut, string pdescription, double pbudget, int pnbEmploye, double ptotalSalaire, int pidClient)
             {
                 titre = ptitre;
                 dateDebut = pdateDebut;
@@ -34,10 +34,21 @@ namespace Projet_Final
                 nbEmploye = pnbEmploye;
                 totalSalaire = ptotalSalaire;
                 idClient = pidClient;
-                statutProjet = pstatutProjet;
             }
 
-            public Projet()
+            public Projet(string ptitre, string pdateDebut, string pdescription, double pbudget, int pnbEmploye, double ptotalSalaire, int pidClient,string pprenomEmploye)
+            {
+                titre = ptitre;
+                dateDebut = pdateDebut;
+                description = pdescription;
+                budget = pbudget;
+                nbEmploye = pnbEmploye;
+                totalSalaire = ptotalSalaire;
+                idClient = pidClient;
+                prenomEmploye = pprenomEmploye;
+            }
+
+        public Projet()
             {
 
             }
@@ -90,7 +101,7 @@ namespace Projet_Final
                 }
             }
             public double Budget
-        {
+            {
                 get { return budget; }
                 set
                 {
@@ -109,7 +120,7 @@ namespace Projet_Final
             }
 
             public double TotalSalaire
-        {
+            {
                 get { return totalSalaire; }
                 set
                 {
@@ -138,15 +149,15 @@ namespace Projet_Final
                 }
             }
 
-        public string NomEmploye
-        {
-            get { return nomEmploye; }
-            set
+            public string PrenomEmploye
             {
-                nomEmploye = value;
-                this.OnPropertyChanged();
+                get { return prenomEmploye; }
+                set
+                {
+                    prenomEmploye = value;
+                    this.OnPropertyChanged();
+                }
             }
-        }
 
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

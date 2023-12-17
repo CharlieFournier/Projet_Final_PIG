@@ -4,15 +4,12 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -24,36 +21,19 @@ namespace Projet_Final
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ZoomProjet : Page
+    public sealed partial class ListeProjetEnCours : Page
     {
-        int index;
-
-        Projet p;
-        public ZoomProjet()
+        public ListeProjetEnCours()
         {
             this.InitializeComponent();
+            SingletonProjet.getInstance().getProjetEnCours();
+            GridProjet.ItemsSource = SingletonProjet.getInstance().getListe();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void GridProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            index = (int)e.Parameter;
-
-            if (index >= 0)
-            {
-                p = SingletonProjet.getInstance().getListe()[index];
-
-                tbxTitreProjet.Text = "Projet " + p.Titre;
-
-                tbxNumeroProjet.Text = "Numero: " + p.NumeroProjet;
-
-            }
+            int index = GridProjet.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomProjet), index);
         }
-
-        private void btSupprimer_Click(object sender, RoutedEventArgs e)
-        {
-            SingletonProjet.getInstance().supprimer(index);
-            this.Frame.Navigate(typeof(ListeProjet));
-        }
-
     }
 }

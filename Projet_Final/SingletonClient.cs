@@ -36,6 +36,7 @@ namespace Projet_Final
             listeClient.Clear();
             try
             {
+                
                 MySqlCommand commande = new MySqlCommand("P_Select_Client");
                 commande.Connection = con;
                 commande.CommandType = System.Data.CommandType.StoredProcedure; ;

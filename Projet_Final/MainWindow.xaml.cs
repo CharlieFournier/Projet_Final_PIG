@@ -26,7 +26,7 @@ namespace Projet_Final
         public MainWindow()
         {
             this.InitializeComponent();
-            //mainFrame.Navigate(typeof(Page1));
+            mainFrame.Navigate(typeof(ListeProjetEnCours));
         }
 
         private void navView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -35,6 +35,9 @@ namespace Projet_Final
 
             switch (item.Name)
             {
+                case "iListeProjetEnCours":
+                    mainFrame.Navigate(typeof(ListeProjetEnCours));
+                    break;
                 case "iListeProjet":
                     mainFrame.Navigate(typeof(ListeProjet));
                     break;

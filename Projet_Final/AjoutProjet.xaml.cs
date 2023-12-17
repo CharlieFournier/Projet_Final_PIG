@@ -32,6 +32,7 @@ namespace Projet_Final
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
+
             string titre = tbxTitre.Text;
             string datedebut = DateDebutPicker.SelectedDate.ToString();
             datedebut = datedebut.Substring(0,10);
@@ -40,13 +41,23 @@ namespace Projet_Final
             int nbemploye = Convert.ToInt32(tbxEmploye.Text);
             double totalSalaire = Convert.ToDouble(tbxSalaire.Text);
             int idClient = Convert.ToInt32(tbxIdClient.Text);
-            string statut = cbStatut.SelectedValue.ToString();
 
+            if (tbxnomEmployePro.Text != null)
+            {
+                string prenomEmployePro = tbxnomEmployePro.Text;
 
-            Projet projet = new Projet(titre, datedebut, description, budget, nbemploye, totalSalaire, idClient, statut);
+                Projet projet = new Projet(titre, datedebut, description, budget, nbemploye, totalSalaire, idClient, prenomEmployePro);
 
-            SingletonProjet.getInstance().Ajout(projet);
-           
+                SingletonProjet.getInstance().Ajout(projet);
+            }
+
+            else
+            {
+                Projet projet = new Projet(titre, datedebut, description, budget, nbemploye, totalSalaire, idClient);
+
+                SingletonProjet.getInstance().Ajout(projet);
+            }
+
             afficher();
         }
 

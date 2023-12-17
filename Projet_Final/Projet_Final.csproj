@@ -18,6 +18,7 @@
     <None Remove="ListeClient.xaml" />
     <None Remove="ListeEmploye.xaml" />
     <None Remove="ListeProjet.xaml" />
+    <None Remove="ListeProjetEnCours.xaml" />
     <None Remove="ZoomClient.xaml" />
     <None Remove="ZoomEmploye.xaml" />
     <None Remove="ZoomProjet.xaml" />
@@ -47,6 +48,11 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ListeProjetEnCours.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="ZoomClient.xaml">
