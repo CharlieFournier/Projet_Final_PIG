@@ -29,6 +29,7 @@ namespace Projet_Final
         public ZoomClient()
         {
             this.InitializeComponent();
+            GridProjet.ItemsSource = SingletonProjet.getInstance().getListe();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -38,7 +39,19 @@ namespace Projet_Final
             {
                 c = SingletonClient.getInstance().getListe()[index];
 
-                tbxIdClient.Text = "Client " + c.IdClient;
+                SingletonProjet.getInstance().getProjetClient(c);
+
+                tbxIdClient.Text = "Client No. " + c.IdClient;
+
+                tbxNomClient.Text = "Nom: " + c.NomClient;
+
+                tbxAdresseClient.Text = "Adresse: " + c.AdresseClient;
+
+                tbxNumeroTel.Text = "Telephone: " + c.NumeroTel;
+
+                tbxEmailClient.Text = "Email: " + c.EmailClient;
+
+                
 
             }
         }
@@ -49,5 +62,10 @@ namespace Projet_Final
             this.Frame.Navigate(typeof(ListeClient));
         }
 
+        private void GridProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = GridProjet.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomProjet), index);
+        }
     }
 }

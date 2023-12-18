@@ -118,6 +118,8 @@ namespace Projet_Final
 
             }
 
+
+
             catch (MySqlException ex)
             {
                 if (con.State == System.Data.ConnectionState.Open) { }
@@ -127,6 +129,59 @@ namespace Projet_Final
             return listeProjet;
 
         }
+
+        public ObservableCollection<Projet> getProjetClient(Client c)
+        {
+            int idCli = c.IdClient;
+
+            listeProjet.Clear();
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("P_Select_Projet_Client");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+
+                commande.Parameters.AddWithValue("in_idClient", idCli);
+
+                con.Open();
+
+                MySqlDataReader r = commande.ExecuteReader();
+
+                while (r.Read())
+                {
+
+
+                    string numeroProjet = (string)r["numeroProjet"];
+                    string titre = (string)r["titre"];
+                    string dateDebut = (string)r["dateDebut"];
+                    string description = (string)r["Description"];
+                    double budget = (double)r["budget"];
+                    int nbEmploye = (int)r["nbEmploye"];
+                    double totalSalaire = (double)r["totalSalaire"];
+                    int idClient = (int)r["idClient"];
+                    string statutProjet = (string)r["statutProjet"];
+
+                    Projet projet = new Projet { NumeroProjet = numeroProjet, Titre = titre, DateDebut = dateDebut, Description = description, Budget = budget, NbEmploye = nbEmploye, TotalSalaire = totalSalaire, IdClient = idClient, StatutProjet = statutProjet };
+                    listeProjet.Add(projet);
+                }
+
+                r.Close();
+                con.Close();
+
+            }
+
+
+
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open) { }
+                con.Close();
+            }
+
+            return listeProjet;
+
+        }
+
 
         public void supprimer(int position)
         {
