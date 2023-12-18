@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -13,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace Projet_Final
 {
-    internal class SingletonProjet
+    internal class SingletonProjet2
     {
-        static SingletonProjet instance = null;
+        static SingletonProjet2 instance = null;
         MySqlConnection con;
         ObservableCollection<Projet> listeProjet;
         DataSet ds;
-        public SingletonProjet()
+        public SingletonProjet2()
         {
             con = new MySqlConnection("Server=cours.cegep3r.info;Database=a2023_420325ri_fabeq5;Uid=2052524;Pwd=2052524;");
             listeProjet = new ObservableCollection<Projet>();
         }
 
-        public static SingletonProjet getInstance()
+        public static SingletonProjet2 getInstance()
         {
             if (instance == null)
-                instance = new SingletonProjet();
+                instance = new SingletonProjet2();
 
             return instance;
         }
@@ -290,7 +286,7 @@ namespace Projet_Final
 
         public void supprimer(int position)
         {
-            Projet p = SingletonProjet.getInstance().getListe()[position];
+            Projet p = SingletonProjet2.getInstance().getListe()[position];
             string numeroProjet = p.NumeroProjet;
 
             try
@@ -315,7 +311,7 @@ namespace Projet_Final
         public void update(Projet p, int position)
         {
             /*
-                Projet pro = SingletonProjet.getInstance().getListe()[position];
+                Projet pro = SingletonProjet2.getInstance().getListe()[position];
                 int numeroProjet = pro.NumeroProjet;
 
                 string modele = m.Modele;
@@ -363,41 +359,41 @@ namespace Projet_Final
             double totalSalaire = p.TotalSalaire;
             int idClient = p.IdClient;
 
-                try
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("P_Ajout_Projet");
+
+                if (p.PrenomEmploye != "")
                 {
-                    MySqlCommand commande = new MySqlCommand("P_Ajout_Projet");
-                   
-                    if (p.PrenomEmploye != "")
-                    {
-                        commande = new MySqlCommand("P_Ajout_Projet_Employe");
-                    }
+                    commande = new MySqlCommand("P_Ajout_Projet_Employe");
+                }
 
-                    commande.Connection = con;
-                    commande.CommandType = System.Data.CommandType.StoredProcedure;
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    commande.Parameters.AddWithValue("in_titre", titre);
-                    commande.Parameters.AddWithValue("in_dateDebut", dateDebut);
-                    commande.Parameters.AddWithValue("in_description", description);
-                    commande.Parameters.AddWithValue("in_budget", budget);
-                    commande.Parameters.AddWithValue("in_nbEmploye", nbEmploye);
-                    commande.Parameters.AddWithValue("in_totalSalaire", totalSalaire);
-                    commande.Parameters.AddWithValue("in_IdClient", idClient);
-                    commande.Parameters.AddWithValue("in_statutProjet", "En cours");
-                    if (p.PrenomEmploye != "")
-                    {
+                commande.Parameters.AddWithValue("in_titre", titre);
+                commande.Parameters.AddWithValue("in_dateDebut", dateDebut);
+                commande.Parameters.AddWithValue("in_description", description);
+                commande.Parameters.AddWithValue("in_budget", budget);
+                commande.Parameters.AddWithValue("in_nbEmploye", nbEmploye);
+                commande.Parameters.AddWithValue("in_totalSalaire", totalSalaire);
+                commande.Parameters.AddWithValue("in_IdClient", idClient);
+                commande.Parameters.AddWithValue("in_statutProjet", "En cours");
+                if (p.PrenomEmploye != "")
+                {
                     string prenomEmploye = p.PrenomEmploye;
                     commande.Parameters.AddWithValue("in_prenomEmploye", prenomEmploye);
                 }
-                    con.Open();
-                    commande.ExecuteNonQuery();
+                con.Open();
+                commande.ExecuteNonQuery();
 
-                    con.Close();
-                }
+                con.Close();
+            }
 
-                catch (MySqlException ex)
-                {
-                    con.Close();
-                }
+            catch (MySqlException ex)
+            {
+                con.Close();
+            }
         }
 
 

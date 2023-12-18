@@ -21,49 +21,36 @@ namespace Projet_Final
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ZoomClient : Page
+    public sealed partial class ZoomProjet2 : Page
     {
         int index;
 
-        Client c;
-        public ZoomClient()
+        Projet p;
+        public ZoomProjet2()
         {
             this.InitializeComponent();
-            GridProjet.ItemsSource = SingletonProjet.getInstance().getListe();
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             index = (int)e.Parameter;
 
             if (index >= 0)
             {
-                c = SingletonClient.getInstance().getListe()[index];
+                p = SingletonProjet2.getInstance().getListe()[index];
 
-                SingletonProjet.getInstance().getProjetClient(c);
+                tbxTitreProjet.Text = "Projet " + p.Titre;
 
-                tbxIdClient.Text = "Client No. " + c.IdClient;
-
-                tbxNomClient.Text = "Nom: " + c.NomClient;
-
-                tbxAdresseClient.Text = "Adresse: " + c.AdresseClient;
-
-                tbxNumeroTel.Text = "Telephone: " + c.NumeroTel;
-
-                tbxEmailClient.Text = "Email: " + c.EmailClient;
+                tbxNumeroProjet.Text = "Numero: " + p.NumeroProjet;
 
             }
         }
 
         private void btSupprimer_Click(object sender, RoutedEventArgs e)
         {
-            SingletonClient.getInstance().supprimer(index);
-            this.Frame.Navigate(typeof(ListeClient));
+            SingletonProjet2.getInstance().supprimer(index);
+            this.Frame.Navigate(typeof(ListeProjet));
         }
 
-        private void GridProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            int index = GridProjet.SelectedIndex;
-            this.Frame.Navigate(typeof(ZoomProjet), index);
-        }
     }
 }

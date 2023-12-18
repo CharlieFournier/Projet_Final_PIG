@@ -12,11 +12,12 @@
     <Grid Grid.Column="0" Grid.Row="1"  Background="Black" HorizontalAlignment="Stretch">
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -51,9 +52,12 @@
             <Button x:Name="Supprimer" Click="btSupprimer_Click" Margin="20">Supprimer</Button>
         </StackPanel>
 
-        <Grid  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" >
-            <GridView x:Name="GridProjet" Background="black" SelectionChanged="GridProjet_SelectionChanged">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4">
+            <TextBlock Text="Projets du client:"/>
+        </StackPanel>
+        <Grid  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" >
 
+            <GridView x:Name="GridProjet" Background="black" SelectionChanged="GridProjet_SelectionChanged">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="local:Projet">
                         <StackPanel Orientation="Vertical" 

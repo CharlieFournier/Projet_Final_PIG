@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,8 @@ namespace Projet_Final
         public ZoomEmploye()
         {
             this.InitializeComponent();
+            //GridProjet_EmployeActif.ItemsSource = SingletonProjet.getInstance().getListe();
+            //GridProjet_EmployeInactif.ItemsSource = SingletonProjet.getInstance().getListe();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -39,7 +42,37 @@ namespace Projet_Final
             {
                 emp = SingletonEmploye.getInstance().getListe()[index];
 
+                GridProjet_EmployeActif.ItemsSource = SingletonProjet.getInstance().getProjet_EmployeActif(emp);
+
+                GridProjet_EmployeInactif.ItemsSource = SingletonProjet2.getInstance().getProjet_EmployeInactif(emp);
+
                 tbxMatriculeEmploye.Text = "Employe " + emp.MatriculeEmploye;
+
+                tbxNomEmploye.Text = "Nom: " + emp.NomEmploye;
+
+                tbxPrenomEmploye.Text = "Prenom: " + emp.PrenomEmploye;
+
+                tbxDateNaissance.Text = "Date de naissance: " + emp.DateNaissance;
+
+                tbxDateEmbauche.Text = "Date d'embauche: " + emp.DateEmbauche;
+
+                tbxEmailEmploye.Text = "Courriel: " + emp.EmailEmploye;
+
+                tbxAdresseEmploye.Text = "Adresse: " + emp.AdresseEmploye;
+
+                tbxTauxHoraire.Text = "Taux: " + emp.TauxHoraire;
+
+                tbxNbrHeure.Text = "Heures: " + emp.NbrHeure;
+
+                tbxStatutEmploye.Text = "Statut: " + emp.StatutEmploye;
+
+
+                try
+                {
+                    Uri image = new Uri(emp.UrlPhoto);
+                    imgEmploye.Source = new BitmapImage(image);
+                }
+                catch { }
 
             }
         }
@@ -50,5 +83,16 @@ namespace Projet_Final
             this.Frame.Navigate(typeof(ListeEmploye));
         }
 
+        private void GridProjet_EmployeActif_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = GridProjet_EmployeActif.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomProjet), index);
+        }
+
+        private void GridProjet_EmployeInactif_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = GridProjet_EmployeInactif.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomProjet2), index);
+        }
     }
 }
