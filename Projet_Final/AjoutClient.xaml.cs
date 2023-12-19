@@ -1,3 +1,4 @@
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -30,12 +31,38 @@ namespace Projet_Final
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
-            string nomClient = tbxNomClient.Text;
-            string adresseClient = tbxAdresseClient.Text;
-            string numeroTel = tbxTelephoneClient.Text;
-            string emailClient = tbxEmailClient.Text;
 
 
+            if (tbxNomClient.Text == "")
+            {
+                tbxNomClient.BorderBrush = new SolidColorBrush(Colors.Red);
+
+            }
+
+            else if (tbxAdresseClient.Text == "")
+            {
+                tbxAdresseClient.BorderBrush = new SolidColorBrush(Colors.Red);
+
+            }
+
+            else if (tbxTelephoneClient.Text == "")
+            {
+                tbxTelephoneClient.BorderBrush = new SolidColorBrush(Colors.Red);
+
+            }
+
+            else if (tbxEmailClient.Text == "")
+            {
+                tbxEmailClient.BorderBrush = new SolidColorBrush(Colors.Red);
+
+            }
+
+            else {
+
+                string nomClient = tbxNomClient.Text;
+                string adresseClient = tbxAdresseClient.Text;
+                string numeroTel = tbxTelephoneClient.Text;
+                string emailClient = tbxEmailClient.Text;
 
 
             Client client = new Client(nomClient, adresseClient, numeroTel, emailClient);
@@ -43,6 +70,7 @@ namespace Projet_Final
             SingletonClient.getInstance().Ajout(client);
 
             afficher();
+            }
         }
 
         private void afficher()
