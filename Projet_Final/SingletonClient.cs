@@ -150,31 +150,28 @@ namespace Projet_Final
 
         public void update(Client c, int position)
         {
-            /*
-                Projet pro = SingletonProjet.getInstance().getListe()[position];
-                int numeroProjet = pro.NumeroProjet;
 
-                string modele = m.Modele;
-                string meuble = m.Meuble;
-                string categorie = m.Categorie;
-                string couleur = m.Couleur;
-                double prix = m.Prix;
+                int idCli = c.IdClient;
+
+                string nomCli = c.NomClient;
+                string adresseCli = c.AdresseClient;
+                string numTel = c.NumeroTel;
+                string emailCli = c.EmailClient;
 
 
 
                 try
                 {
-                    MySqlCommand commande = new MySqlCommand();
+                    MySqlCommand commande = new MySqlCommand("P_Update_Client");
                     commande.Connection = con;
-                    commande.CommandText = $"update produits set modele= @modele, meuble= @meuble, categorie= @categorie, couleur= @couleur, prix= @prix WHERE code = @code;";
+                    commande.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    commande.Parameters.AddWithValue("@code", code);
+                    commande.Parameters.AddWithValue("in_noClient", idCli);
 
-                    commande.Parameters.AddWithValue("@modele", modele);
-                    commande.Parameters.AddWithValue("@meuble", meuble);
-                    commande.Parameters.AddWithValue("@categorie", categorie);
-                    commande.Parameters.AddWithValue("@couleur", couleur);
-                    commande.Parameters.AddWithValue("@prix", prix);
+                    commande.Parameters.AddWithValue("in_nomClient", nomCli);
+                    commande.Parameters.AddWithValue("in_adresseClient", adresseCli);
+                    commande.Parameters.AddWithValue("in_numeroTel", numTel);
+                    commande.Parameters.AddWithValue("in_emailClient", emailCli);
                     con.Open();
                     commande.ExecuteNonQuery();
 
@@ -184,7 +181,7 @@ namespace Projet_Final
                 catch (MySqlException ex)
                 {
                     con.Close();
-                } */
+                } 
         }
 
 

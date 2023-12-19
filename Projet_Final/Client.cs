@@ -20,6 +20,15 @@ namespace Projet_Final
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public Client(int cidClient, string cnomClient, string cadresseClient, string cnumeroTel, string cemailClient)
+        {
+            idClient = cidClient;
+            nomClient = cnomClient;
+            adresseClient = cadresseClient;
+            numeroTel = cnumeroTel;
+            emailClient = cemailClient;
+        }
+
         public Client(string cnomClient, string cadresseClient, string cnumeroTel, string cemailClient)
         {
             nomClient = cnomClient;

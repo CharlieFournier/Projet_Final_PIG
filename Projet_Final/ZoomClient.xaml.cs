@@ -60,6 +60,11 @@ namespace Projet_Final
             this.Frame.Navigate(typeof(ListeClient));
         }
 
+        private void btModify_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ModifyClient), index);
+        }
+
         private void GridProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = GridProjet.SelectedIndex;

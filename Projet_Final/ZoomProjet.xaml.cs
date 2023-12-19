@@ -91,9 +91,15 @@ namespace Projet_Final
         private void btAjouter_Click(object sender, RoutedEventArgs e)
         {
             ajout = tbxAjoutEmploye.Text;
+            if (ajout != "") { 
+                try { 
+            
             numpro = p.NumeroProjet;
             SingletonProjet.getInstance().CreateLien(ajout,numpro);
             this.Frame.Navigate(typeof(ListeProjet));
+                }
+                catch (Exception ex) { }
+            }
         }
     }
 }

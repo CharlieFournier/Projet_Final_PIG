@@ -48,7 +48,11 @@
             <TextBlock x:Name="tbxEmailClient"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Button x:Name="Modify" Click="btModify_Click" Margin="20">Modifier</Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
             <Button x:Name="Supprimer" Click="btSupprimer_Click" Margin="20">Supprimer</Button>
         </StackPanel>
 
