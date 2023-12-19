@@ -283,6 +283,29 @@ namespace Projet_Final
 
         }
 
+        public void CreateLien(string prenom, string numero)
+        {
+
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("P_Create_Lien_Employe_Projet");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure;
+
+                commande.Parameters.AddWithValue("in_prenomEmploye", prenom);
+                commande.Parameters.AddWithValue("in_NumeroProjet", numero);
+                con.Open();
+                commande.ExecuteNonQuery();
+
+                con.Close();
+            }
+
+            catch (MySqlException ex)
+            {
+                con.Close();
+            }
+        }
+
 
         public void supprimer(int position)
         {

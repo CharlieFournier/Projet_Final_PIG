@@ -29,9 +29,16 @@ namespace Projet_Final
         int index;
 
         Projet p;
+
+        string ajout;
+
+        string numpro;
         public ZoomProjet()
         {
             this.InitializeComponent();
+
+            GridClientProjet.ItemsSource = SingletonClient.getInstance().getListe();
+            GridEmployeProjet.ItemsSource = SingletonEmploye.getInstance().getListe();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -44,7 +51,21 @@ namespace Projet_Final
 
                 tbxTitreProjet.Text = "Projet " + p.Titre;
 
-                tbxNumeroProjet.Text = "Numero: " + p.NumeroProjet;
+                tbxNumeroProjet.Text = "Projet Numero: " + p.NumeroProjet;
+
+                tbxDateDebut.Text = "Date de début: " + p.DateDebut;
+
+                tbxDescription.Text = "Description: \n" + p.Description;
+
+                tbxBudget.Text = "Budget: " + p.Budget;
+
+                tbxTotalSalaire.Text = "Total Salaire: " + p.TotalSalaire;
+
+                tbxStatutProjet.Text = "Statut: " + p.StatutProjet;
+
+                SingletonClient.getInstance().getClientProjet(p.IdClient);
+
+                SingletonEmploye.getInstance().getEmployeProjet(p.NumeroProjet);
 
             }
         }
@@ -55,5 +76,24 @@ namespace Projet_Final
             this.Frame.Navigate(typeof(ListeProjet));
         }
 
+        private void GridClientProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = GridClientProjet.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomClient), index);
+        }
+
+        private void GridEmployeProjet_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = GridEmployeProjet.SelectedIndex;
+            this.Frame.Navigate(typeof(ZoomEmploye), index);
+        }
+
+        private void btAjouter_Click(object sender, RoutedEventArgs e)
+        {
+            ajout = tbxAjoutEmploye.Text;
+            numpro = p.NumeroProjet;
+            SingletonProjet.getInstance().CreateLien(ajout,numpro);
+            this.Frame.Navigate(typeof(ListeProjet));
+        }
     }
 }

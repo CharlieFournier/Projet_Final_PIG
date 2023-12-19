@@ -79,6 +79,57 @@ namespace Projet_Final
 
         }
 
+        public ObservableCollection<Employe> getEmployeProjet(String numPro)
+        {
+
+            listeEmploye.Clear();
+            try
+            {
+                MySqlCommand commande = new MySqlCommand("P_Select_Employe_Projet");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure; ;
+
+                commande.Parameters.AddWithValue("in_numeroProjet", numPro);
+
+                con.Open();
+
+                MySqlDataReader r = commande.ExecuteReader();
+
+                while (r.Read())
+                {
+
+                    string matriculeEmploye = (string)r["matriculeEmploye"];
+                    string nomEmploye = (string)r["nomEmploye"];
+                    string prenomEmploye = (string)r["prenomEmploye"];
+                    string dateNaissance = (string)r["dateNaissance"];
+                    string emailEmploye = (string)r["emailEmploye"];
+                    string adresseEmploye = (string)r["adresseEmploye"];
+                    string dateEmbauche = (string)r["dateEmbauche"];
+                    double tauxHoraire = (double)r["tauxHoraire"];
+                    string urlPhoto = (string)r["photo"];
+                    string statutEmploye = (string)r["statut"];
+                    double nbrHeure = (double)r["nbrHeures"];
+
+                    Employe employe = new Employe { MatriculeEmploye = matriculeEmploye, NomEmploye = nomEmploye, PrenomEmploye = prenomEmploye, DateNaissance = dateNaissance, EmailEmploye = emailEmploye, AdresseEmploye = adresseEmploye, DateEmbauche = dateEmbauche, TauxHoraire = tauxHoraire, UrlPhoto = urlPhoto, StatutEmploye = statutEmploye, NbrHeure = nbrHeure };
+                    listeEmploye.Add(employe);
+                }
+
+                r.Close();
+                con.Close();
+
+
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open) { }
+                con.Close();
+            }
+
+            return listeEmploye;
+
+
+        }
+
         public void supprimer(int position)
         {
             Employe e = SingletonEmploye.getInstance().getListe()[position];

@@ -75,6 +75,55 @@ namespace Projet_Final
 
         }
 
+        public ObservableCollection<Client> getClientProjet(int c)
+        {
+
+            listeClient.Clear();
+
+            int idCli = c; 
+
+            try
+            {
+
+                MySqlCommand commande = new MySqlCommand("P_Select_Client_Projet");
+                commande.Connection = con;
+                commande.CommandType = System.Data.CommandType.StoredProcedure; ;
+
+                commande.Parameters.AddWithValue("in_idClient", idCli);
+                con.Open();
+
+                MySqlDataReader r = commande.ExecuteReader();
+
+                while (r.Read())
+                {
+
+                    int idClient = (int)r["idClient"];
+                    string nomClient = (string)r["nomClient"];
+                    string adresseClient = (string)r["adresseClient"];
+                    string numeroTel = (string)r["numeroTel"];
+                    string emailClient = (string)r["emailClient"];
+
+
+                    Client client = new Client { IdClient = idClient, NomClient = nomClient, AdresseClient = adresseClient, NumeroTel = numeroTel, EmailClient = emailClient };
+                    listeClient.Add(client);
+                }
+
+                r.Close();
+                con.Close();
+
+
+            }
+            catch (MySqlException ex)
+            {
+                if (con.State == System.Data.ConnectionState.Open) { }
+                con.Close();
+            }
+
+            return listeClient;
+
+
+        }
+
         public void supprimer(int position)
         {
             Client c = SingletonClient.getInstance().getListe()[position];
